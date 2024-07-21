@@ -1,0 +1,16 @@
+# Ignore node_modules directory
+node_modules/
+__pycache__
+venv
+data
+
+# Ignore log files
+*.log
+
+# Ignore compiled files
+*.class
+
+# Ignore specific output files
+secret_config.json
+stock_ranking.csv
+stock_ranking.html
