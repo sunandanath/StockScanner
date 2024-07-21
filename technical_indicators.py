@@ -55,16 +55,3 @@ def calculate_technical_indicators(df):
 
 
 
-""" # technical_indicators.py ALPHA Vantage
-
-import pandas as pd
-
-
-def calculate_technical_indicators(df):
-    df['20 Day MA'] = df['Close'].rolling(window=20).mean()
-    df['50 Day MA'] = df['Close'].rolling(window=50).mean()
-    df['Upper Band'] = df['20 Day MA'] + (
-        df['Close'].rolling(window=20).std() * 2)
-    df['Lower Band'] = df['20 Day MA'] - (
-        df['Close'].rolling(window=20).std() * 2)
-    return df """
