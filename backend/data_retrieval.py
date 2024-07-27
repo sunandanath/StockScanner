@@ -1,9 +1,17 @@
-import requests
+# data_retrieval.py yfinance with logs
+
 import yfinance as yf
 import pandas as pd
 import logging
+from datetime import datetime, timedelta
 
 def get_nifty_200_symbols():
+    """
+    Reads the Nifty 200 symbols from a CSV file and formats them for Yahoo Finance.
+
+    Returns:
+        list: A list of formatted stock symbols.
+    """
     try:
         df = pd.read_csv('data/ind_nifty200list.csv')
         symbols = df['Symbol'].apply(lambda x: f'{x}.NS').tolist()
@@ -14,9 +22,24 @@ def get_nifty_200_symbols():
         return []
 
 def fetch_market_data(symbol):
+    """
+    Fetches market data for a given symbol using yfinance.
+
+    Args:
+        symbol (str): The stock symbol to fetch data for.
+
+    Returns:
+        pd.DataFrame: DataFrame containing the market data, or None if an error occurs.
+    """
     try:
         ticker = yf.Ticker(symbol)
-        df = ticker.history(period="6mo")
+        
+        # Calculate the date 6 months ago from today
+        end_date = datetime.today().date()
+        start_date = end_date - timedelta(days=6*30)  # Roughly 6 months
+        
+        df = ticker.history(start=start_date, end=end_date)  # Use start and end dates for 6 months data
+        
         if df.empty:
             raise ValueError(f"No data found for symbol: {symbol}")
 
@@ -39,17 +62,16 @@ def fetch_market_data(symbol):
         return None
 
 def save_data_to_csv(symbol, df):
+    """
+    Saves the DataFrame to a CSV file.
+
+    Args:
+        symbol (str): The stock symbol to name the file.
+        df (pd.DataFrame): The DataFrame to save.
+    """
     try:
         df.to_csv(f'data/{symbol}.csv')
         logging.info(f"Data for symbol {symbol} saved to CSV.")
     except Exception as e:
         logging.error(f"Error saving data for symbol {symbol} to CSV: {e}")
 
-def fetch_corporate_actions(symbol, api_key):
-    url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={symbol}&apikey={api_key}"
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.json()
-        if "Time Series (Daily)" in data:
-            return data["Time Series (Daily)"]
-    return None

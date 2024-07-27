@@ -1,3 +1,5 @@
+# technical_indicators.py Yfinance, Swing Trading_10 and 20 days MA, Trend
+
 import pandas as pd
 
 def calculate_technical_indicators(df):
