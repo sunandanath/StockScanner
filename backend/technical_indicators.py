@@ -1,5 +1,3 @@
-# technical_indicators.py Yfinance, Swing Trading_10 and 20 days MA, Trend
-
 import pandas as pd
 
 def calculate_technical_indicators(df):
@@ -39,32 +37,3 @@ def determine_trend(df, period='3mo'):
     else:
         return 'Bearish'
 
-
-
-
-""" # technical_indicators.py Yfinance
-
-import pandas as pd
-
-def calculate_technical_indicators(df):
-    df['20 Day MA'] = df['Close'].rolling(window=20).mean()
-    df['50 Day MA'] = df['Close'].rolling(window=50).mean()
-    df['Upper Band'] = df['20 Day MA'] + (df['Close'].rolling(window=20).std() * 2)
-    df['Lower Band'] = df['20 Day MA'] - (df['Close'].rolling(window=20).std() * 2)
-    return df """
-
-
-
-""" # technical_indicators.py ALPHA Vantage
-
-import pandas as pd
-
-
-def calculate_technical_indicators(df):
-    df['20 Day MA'] = df['Close'].rolling(window=20).mean()
-    df['50 Day MA'] = df['Close'].rolling(window=50).mean()
-    df['Upper Band'] = df['20 Day MA'] + (
-        df['Close'].rolling(window=20).std() * 2)
-    df['Lower Band'] = df['20 Day MA'] - (
-        df['Close'].rolling(window=20).std() * 2)
-    return df """

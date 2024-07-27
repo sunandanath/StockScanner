@@ -1,0 +1,4 @@
+data_directory: data
+log_level: INFO
+news_api_key: 6d8d5274bc60459788facf5088b3230f
+alpha_vantage_key: 9FLLE160XPI4Y363
