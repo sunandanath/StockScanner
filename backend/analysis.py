@@ -69,4 +69,3 @@ def save_ranking_to_html(ranking_df):
 
     ranking_df['Trend'] = ranking_df['Trend'].apply(colorize_trend)
     ranking_df.to_html('stock_ranking.html', index=False, escape=False)
-

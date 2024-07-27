@@ -1,5 +1,3 @@
-# technical_indicators.py Yfinance, Swing Trading_10 and 20 days MA, Trend
-
 import pandas as pd
 
 def calculate_technical_indicators(df):
@@ -38,4 +36,3 @@ def determine_trend(df, period='3mo'):
         return 'Bullish'
     else:
         return 'Bearish'
-
