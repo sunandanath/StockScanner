@@ -68,3 +68,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+<!-- Notes:  -->
+<!-- The error 404 - indicates that the server could not find the resource you requested, which in this case is the root URL /. This is because the app.py script currently doesn't serve any frontend or provide a root route. We need to set up a basic route to serve the frontend files, typically using the send_from_directory function from Flask to serve static files.
+
+Here's how we can do it:
+
+Serve Static Files: Serve the static frontend files from the React build directory.
+Ensure Proper CORS Handling: Ensure that the CORS handling is correctly set up.
+Steps to Fix
+------------
+Build the React Frontend:
+
+First, make sure your React frontend is built and ready to be served by the Flask backend.
+
+Navigate to the frontend directory and run the build command: npm run build
+This will create a build directory in your frontend folder containing the compiled static files.
+Then you can do npm start -->
