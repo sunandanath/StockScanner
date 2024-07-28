@@ -1,5 +1,5 @@
 # Ignore node_modules directory
-node_modules/
+/node_modules
 __pycache__
 .env
 venv
@@ -11,7 +11,7 @@ data
 # Ignore compiled files
 *.class
 
-# Ignore specific output files
+# Ignore specific output and files
 secret_config.json
 stock_ranking.csv
 stock_ranking.html
