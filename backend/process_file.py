@@ -1,3 +1,6 @@
+###############################################################################################
+# Major Changes done to get Colour in Bullish and Bearish Trend 
+
 import pandas as pd
 import os
 import yaml
@@ -38,7 +41,8 @@ def process_file(filepath):
         raise Exception("No data available for ranking.")
 
 
-#########################################################################################
+###############################################################################################
+# Bullish and Bearish Trend Without Colour in HTML file 
 
 # import pandas as pd
 # import os
