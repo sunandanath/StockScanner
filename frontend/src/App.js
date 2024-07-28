@@ -61,7 +61,18 @@ function App() {
             </span>
           )}
         </label>
-        <input type="file" id="file-upload" onChange={handleFileChange} />
+        <input
+          type="file"
+          id="file-upload"
+          className="file-upload-input"
+          onChange={handleFileChange}
+        />
+        <input
+          type="file"
+          id="file-upload"
+          className="file-upload-input"
+          onChange={handleFileChange}
+        />
         <button onClick={handleFileUpload} disabled={loading}>
           {loading ? message : "Upload"}
         </button>
