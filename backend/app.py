@@ -33,7 +33,7 @@ def upload_file():
     try:
         csv_filename, html_filename = process_file(filepath)
         return jsonify({
-            'message': 'File successfully processed',
+            'message': 'File Successfully Processed',
             'csv_file': f'/api/results/{csv_filename}',
             'html_file': f'/api/results/{html_filename}'
         })
