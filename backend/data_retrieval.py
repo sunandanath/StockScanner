@@ -3,9 +3,9 @@ import yfinance as yf
 import pandas as pd
 import logging
 
-def get_nifty_200_symbols():
+def get_nifty_stock_symbols(filepath):
     try:
-        df = pd.read_csv('data/ind_nifty200list.csv')
+        df = pd.read_csv(filepath)
         symbols = df['Symbol'].apply(lambda x: f'{x}.NS').tolist()
         logging.info(f"Successfully read {len(symbols)} symbols from CSV file.")
         return symbols

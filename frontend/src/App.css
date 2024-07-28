@@ -1,12 +1,23 @@
 .App {
   text-align: center;
-  padding: 20px;
 }
 
-.file-upload {
-  margin-top: 20px;
+.App-header {
+  background-color: #d2dcf1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(7, 79, 138);
 }
 
-.file-upload-input {
+input {
   margin-bottom: 10px;
+}
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

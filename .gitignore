@@ -15,3 +15,5 @@ data
 secret_config.json
 stock_ranking.csv
 stock_ranking.html
+ind_nifty500list.csv
+ind_nifty200list.csv

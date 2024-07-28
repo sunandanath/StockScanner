@@ -37,4 +37,8 @@ python main.py
 
 python -m unittest discover tests
 
-Note: Make folder named data and keep your targated .CSV file there, ex. ind_nifty200list.csv
+Note: Upload any .csv file via local React App http://localhost:3000/, which includes the symbols of the stock of your choice.
+You can also Download the file and keep in your working directory and upload the same.
+Ex. from https://www.nseindia.com/products-services/indices-nifty200-index and https://www.nseindia.com/products-services/indices-nifty500-index download
+https://nsearchives.nseindia.com/content/indices/ind_nifty200list.csv
+https://nsearchives.nseindia.com/content/indices/ind_nifty500list.csv

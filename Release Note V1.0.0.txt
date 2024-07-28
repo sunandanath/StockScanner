@@ -1,0 +1,20 @@
+# Stock Analyzer
+
+## Version 1.0.0
+
+This is the initial release of the Nifty Stock Analyzer. 
+
+### Features
+
+- Upload stock details CSV file.
+- Process the file to calculate technical indicators.
+- Download the processed results in CSV and HTML formats.
+
+### Usage
+
+1. Start the Flask backend:
+   ```bash
+   python app.py
+2. Start the React frontend:
+   npm start
+
