@@ -4,6 +4,7 @@ __pycache__
 .env
 venv
 data
+/Stock_List
 
 # Ignore log files
 *.log
