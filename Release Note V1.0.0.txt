@@ -25,4 +25,8 @@ Date:   Sun Jul 28 21:22:01 2024 +0530
 
     Stock Analyzer Version 1.0.0 Release
 
-    
+commit d54bfa0096dee9cff458e17e111767f564a6423e
+Author: sunandanath <sunanda.etce@gmail.com>
+Date:   Sat Aug 3 15:29:45 2024 +0530
+
+    Stock Analyzer Version 1.0.1 Release    
