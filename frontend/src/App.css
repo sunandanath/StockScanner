@@ -1,6 +1,5 @@
-/* Style 3  */
+/* Style 4 */
 
-/* General Styles */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f2f5;
@@ -117,11 +116,173 @@ button:hover:not(:disabled) {
   text-decoration: underline;
 }
 
-@media (max-width: 600px) {
+.ma-inputs {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: 10px 0;
+}
+
+.ma-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 45%;
+  margin-right: 50px; /* Add margin to create space between the boxes */
+}
+
+.ma-input:last-child {
+  margin-right: 0; /* Remove the margin on the last element */
+}
+
+.ma-input label {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.ma-input input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: content-box;
+}
+
+@media (max-width: 300px) {
   .App-header {
     padding: 1rem;
   }
 }
+
+/* Style 3  */
+
+/* General Styles */
+/* body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.App-header {
+  text-align: center;
+  padding: 2rem;
+  background-color: #ffffff;
+  color: #333333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  color: #007bff;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #666666;
+}
+
+.file-upload-label {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background-color: #007bff;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.file-upload-label:hover {
+  background-color: #0056b3;
+}
+
+.tooltip {
+  visibility: visible;
+  background-color: #333333;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.9;
+  width: 200px;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+button {
+  padding: 0.75rem 1.25rem;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.message {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #ff0000;
+}
+
+.results {
+  margin-top: 1rem;
+}
+
+.results a {
+  display: block;
+  margin-top: 0.5rem;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.results a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .App-header {
+    padding: 1rem;
+  }
+} */
 
 /* Style 2 */
 
