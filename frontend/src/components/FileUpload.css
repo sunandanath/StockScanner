@@ -1,41 +1,54 @@
-/* src/components/FileUpload.css */
 .file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload label {
+  cursor: pointer;
+}
+
+.file-upload .file-upload-label {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 4px;
   text-align: center;
+  margin-bottom: 16px;
 }
 
-.file-upload-input {
-  margin-bottom: 10px;
+.file-upload .file-upload-label:hover {
+  background-color: #303f9f;
 }
 
-input[type="file"] {
-  display: block;
-  margin: 10px auto;
+.file-upload .file-upload-input {
+  display: none;
 }
 
-button[disabled] {
-  opacity: 0.5;
-  cursor: not-allowed;
+.file-upload button {
+  margin: 16px 0;
 }
 
-.message {
-  margin-top: 1rem;
+.file-upload .message {
   font-size: 1rem;
   color: #ff0000;
 }
 
-.results {
-  margin-top: 1rem;
+.file-upload .results {
+  margin-top: 16px;
 }
 
-.results a {
-  display: block;
-  margin-top: 0.5rem;
-  color: #007bff;
+.file-upload .results a {
   text-decoration: none;
-  font-size: 1rem;
+  color: #3f51b5;
 }
 
-.results a:hover {
+.file-upload .results a:hover {
   text-decoration: underline;
 }
 
