@@ -1,4 +1,45 @@
-.App {
+/* src/components/FileUpload.css */
+.file-upload {
+  text-align: center;
+}
+
+.file-upload-input {
+  margin-bottom: 10px;
+}
+
+input[type="file"] {
+  display: block;
+  margin: 10px auto;
+}
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.message {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #ff0000;
+}
+
+.results {
+  margin-top: 1rem;
+}
+
+.results a {
+  display: block;
+  margin-top: 0.5rem;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.results a:hover {
+  text-decoration: underline;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -20,4 +61,4 @@ input {
 button[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
-}
+} */

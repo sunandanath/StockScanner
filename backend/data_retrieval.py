@@ -13,10 +13,10 @@ def get_nifty_stock_symbols(filepath):
         logging.error(f"Error reading CSV file: {e}")
         return []
 
-def fetch_market_data(symbol):
+def fetch_market_data(symbol, period="6mo"):
     try:
         ticker = yf.Ticker(symbol)
-        df = ticker.history(period="6mo")
+        df = ticker.history(period=period)
         if df.empty:
             raise ValueError(f"No data found for symbol: {symbol}")
 

@@ -18,8 +18,8 @@ def rank_stocks(data):
             latest_close = df['Close'].iloc[-1]
             upper_band = df['Upper Band'].iloc[-1]
             lower_band = df['Lower Band'].iloc[-1]
-            distance_to_support = latest_close - lower_band
-            distance_to_resistance = upper_band - latest_close
+            distance_to_support_pct = ((latest_close - lower_band) / lower_band) * 100
+            distance_to_resistance_pct = ((upper_band - latest_close) / upper_band) * 100
             trend = determine_trend(df)
 
             # Calculate signal strength: closer to support is a stronger buy signal,
@@ -29,8 +29,8 @@ def rank_stocks(data):
             ranking.append({
                 'Symbol': symbol,
                 'Close': latest_close,
-                'Distance to Support': distance_to_support,
-                'Distance to Resistance': distance_to_resistance,
+                'Distance to Support (%)': distance_to_support_pct,
+                'Distance to Resistance (%)': distance_to_resistance_pct,
                 'Support Price': lower_band,
                 'Resistance Price': upper_band,
                 'Signal Strength': signal_strength,
@@ -39,24 +39,26 @@ def rank_stocks(data):
     
     ranking_df = pd.DataFrame(ranking)
     # Sort by distance to support (ascending), then by distance to resistance (descending)
-    ranking_df = ranking_df.sort_values(by=['Distance to Support', 'Distance to Resistance'], ascending=[True, False])
+    ranking_df = ranking_df.sort_values(by=['Distance to Support (%)', 'Distance to Resistance (%)'], ascending=[True, False])
     return ranking_df
 
-def save_ranking_to_csv(ranking_df):
+def save_ranking_to_csv(ranking_df, filepath):
     """
     Save the ranking DataFrame to a CSV file.
     
     Args:
         ranking_df (pd.DataFrame): DataFrame with ranked stocks.
+        filepath (str): The path where the CSV file will be saved.
     """
-    ranking_df.to_csv('stock_ranking.csv', index=False)
+    ranking_df.to_csv(filepath, index=False)
 
-def save_ranking_to_html(ranking_df):
+def save_ranking_to_html(ranking_df, filepath):
     """
     Save the ranking DataFrame to an HTML file.
     
     Args:
         ranking_df (pd.DataFrame): DataFrame with ranked stocks.
+        filepath (str): The path where the HTML file will be saved.
     """
     # Apply CSS styling for bullish (green) and bearish (red) trends
     def colorize_trend(trend):
@@ -68,4 +70,4 @@ def save_ranking_to_html(ranking_df):
             return trend
 
     ranking_df['Trend'] = ranking_df['Trend'].apply(colorize_trend)
-    ranking_df.to_html('stock_ranking.html', index=False, escape=False)
+    ranking_df.to_html(filepath, index=False, escape=False)

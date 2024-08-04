@@ -85,3 +85,28 @@ First, make sure your React frontend is built and ready to be served by the Flas
 Navigate to the frontend directory and run the build command: npm run build
 This will create a build directory in your frontend folder containing the compiled static files.
 Then you can do npm start -->
+
+#### Celery and Redis Setup
+
+Install Dependencies
+Configure Celery and Redis
+Run Redis Server
+Run Celery Worker
+Run Flask Application
+Run React Frontend
+
+## Redis Setup
+
+1. Windows: Download from https://github.com/microsoftarchive/redis/releases
+2. Unzip the zip file or Install the Redis. Add the Redis to the PATH.
+3. redis-server.exe (Run from CMD as admin)
+4. Verify Redis: > redis-cli ping (If it returns PONG, Redis is running correctly.)
+5. Install Python Packages: pip install celery[redis] redis
+
+## Celery Setup
+
+1. Configure Celery to Use Redis. Ensure your Celery configuration correctly points to the Redis broker and backend. Make sure the celery_worker.py file is correctly set up
+2. Start Celery Worker: cd backend
+   celery -A celery_worker.celery worker --loglevel=info
+3. Run Flask Application: cd backend
+   python app.py

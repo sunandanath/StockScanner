@@ -1,19 +1,21 @@
 import pandas as pd
 
-def calculate_technical_indicators(df):
+def calculate_technical_indicators(df, ma_period1, ma_period2):
     """
     Calculate technical indicators for a given DataFrame.
     
     Args:
         df (pd.DataFrame): DataFrame containing stock data with 'Close' prices.
+        ma_period1 (int): The first moving average period.
+        ma_period2 (int): The second moving average period.
     
     Returns:
         pd.DataFrame: DataFrame with additional columns for technical indicators.
     """
-    df['10 Day MA'] = df['Close'].rolling(window=10).mean()
-    df['20 Day MA'] = df['Close'].rolling(window=20).mean()
-    df['Upper Band'] = df['20 Day MA'] + (df['Close'].rolling(window=20).std() * 2)
-    df['Lower Band'] = df['20 Day MA'] - (df['Close'].rolling(window=20).std() * 2)
+    df[f'{ma_period1} Day MA'] = df['Close'].rolling(window=ma_period1).mean()
+    df[f'{ma_period2} Day MA'] = df['Close'].rolling(window=ma_period2).mean()
+    df['Upper Band'] = df[f'{ma_period2} Day MA'] + (df['Close'].rolling(window=ma_period2).std() * 2)
+    df['Lower Band'] = df[f'{ma_period2} Day MA'] - (df['Close'].rolling(window=ma_period2).std() * 2)
     return df
 
 def determine_trend(df, period='3mo'):
