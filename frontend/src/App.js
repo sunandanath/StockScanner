@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4),
     marginTop: theme.spacing(8),
   },
+  royalBlue: {
+    color: "#4169E1", // Royal blue color
+  },
 }));
 
 function App() {
@@ -23,10 +26,10 @@ function App() {
   return (
     <Container maxWidth="sm">
       <Paper className={classes.root}>
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h3" gutterBottom className={classes.royalBlue}>
           Stock Analyzer
         </Typography>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h5" gutterBottom>
           Support and Resistance Strategy
         </Typography>
         <FileUpload token={token} />

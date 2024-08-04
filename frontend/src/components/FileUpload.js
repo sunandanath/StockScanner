@@ -33,6 +33,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1rem",
     color: "#ff0000",
   },
+  customTitle: {
+    fontFamily: '"Arial", sans-serif', // Example of a custom font
+    color: "#808080", // Gray color
+  },
 }));
 
 const FileUpload = ({ token }) => {
@@ -61,31 +65,35 @@ const FileUpload = ({ token }) => {
     formData.append("ma_period1", maPeriod1);
     formData.append("ma_period2", maPeriod2);
 
-    try {
-      setLoading(true);
-      setMessage("Uploading...");
-      const res = await axios.post(
-        "http://localhost:5000/api/upload",
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      setMessage(res.data.message);
-      setCsvUrl(res.data.csv_file);
-      setHtmlUrl(res.data.html_file);
-    } catch (err) {
-      console.error(err);
-      setMessage(
-        "Error uploading file: " +
-          (err.response ? err.response.data.message : err.message)
-      );
-    } finally {
-      setLoading(false);
-    }
+    // Simulate data processing delay
+    setMessage("Data Processing...");
+    setLoading(true);
+
+    setTimeout(async () => {
+      try {
+        const res = await axios.post(
+          "http://localhost:5000/api/upload",
+          formData,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        setMessage(res.data.message);
+        setCsvUrl(res.data.csv_file);
+        setHtmlUrl(res.data.html_file);
+      } catch (err) {
+        console.error(err);
+        setMessage(
+          "Error uploading file: " +
+            (err.response ? err.response.data.message : err.message)
+        );
+      } finally {
+        setLoading(false);
+      }
+    }, 500); // Delay to show "Data Processing"
   };
 
   const handleDownload = (url, filename) => {
@@ -118,8 +126,8 @@ const FileUpload = ({ token }) => {
   return (
     <Container maxWidth="sm">
       <Paper className={classes.root}>
-        <Typography variant="h5" gutterBottom>
-          File Upload
+        <Typography variant="h5" gutterBottom className={classes.customTitle}>
+          Ticker Symbol CSV File Upload
         </Typography>
         <form onSubmit={handleFileUpload}>
           <input
@@ -204,6 +212,7 @@ const FileUpload = ({ token }) => {
 
 export default FileUpload;
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // import React, { useState } from "react";
 // import axios from "axios";
 // import {
@@ -404,7 +413,7 @@ export default FileUpload;
 // };
 
 // export default FileUpload;
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 // import React, { useState } from "react";
 // import axios from "axios";
 // // import "./FileUpload.css";
